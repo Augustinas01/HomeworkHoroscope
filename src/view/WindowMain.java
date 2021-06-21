@@ -18,11 +18,11 @@ public class WindowMain extends JFrame {
         void searchButton ();
     }
 
-    private JTextField year;
 
     public static final String[] months = {"April", "May"};
 
     private static JPanel header,body,footer;
+    private JTextField year,month,day;
     ActionListener listener;
 
     public WindowMain(int width, int height, String title){
@@ -46,27 +46,27 @@ public class WindowMain extends JFrame {
         header.setOpaque(false);
 
         //region Content
-        year = new JTextField("Year", 10);
-        JTextField month = new JTextField("Month", 10);
-        JTextField day = new JTextField("Day", 10);
+        this.year = new JTextField("Year", 10);
+        this.month = new JTextField("Month", 10);
+        this.day = new JTextField("Day", 10);
 
 //        year.setFocusable(false);
-        year.setBorder(null);
-        year.setHorizontalAlignment(JTextField.CENTER);
+        this.year.setBorder(null);
+        this.year.setHorizontalAlignment(JTextField.CENTER);
 
 //        month.setFocusable(false);
-        month.setBorder(null);
-        month.setHorizontalAlignment(JTextField.CENTER);
+        this.month.setBorder(null);
+        this.month.setHorizontalAlignment(JTextField.CENTER);
 
 //        day.setFocusable(false);
-        day.setBorder(null);
-        day.setHorizontalAlignment(JTextField.CENTER);
+        this.day.setBorder(null);
+        this.day.setHorizontalAlignment(JTextField.CENTER);
         //endregion
 
         //Adding content
-        header.add(year);
-        header.add(month);
-        header.add(day);
+        header.add(this.year);
+        header.add(this.month);
+        header.add(this.day);
 
         //Size
         header.setPreferredSize(new Dimension(0,getHeight()/5));
@@ -154,5 +154,6 @@ public class WindowMain extends JFrame {
     public int getYear(){
         return Integer.parseInt(this.year.getText());
     }
+
 
 }
