@@ -22,6 +22,7 @@ public class WindowMain extends JFrame {
     public static final String[] months = {"April", "May"};
 
     private static JPanel header,body,footer;
+    private static JLabel signText;
     private JTextField year,month,day;
     ActionListener listener;
 
@@ -84,7 +85,7 @@ public class WindowMain extends JFrame {
         JLabel signLabel = new JLabel("Sign:");
         signLabel.setHorizontalAlignment(JLabel.TRAILING);
 
-        JLabel signText = new JLabel("Avinas");
+        signText = new JLabel("Your sign");
 
         JLabel ageLabel = new JLabel("Age: ");
         ageLabel.setHorizontalAlignment(JLabel.RIGHT);
@@ -166,5 +167,19 @@ public class WindowMain extends JFrame {
         return Integer.parseInt(this.day.getText());
     }
 
+    public void setYear(JTextField year) {
+        this.year = year;
+    }
 
+    public void setMonth(JTextField month) {
+        this.month = month;
+    }
+
+    public void setDay(JTextField day) {
+        this.day = day;
+    }
+
+    public void setSignText(String text) {
+        signText.setText(text);
+    }
 }

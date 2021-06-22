@@ -6,6 +6,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class App  {
@@ -25,7 +27,9 @@ public class App  {
             String line;
             while ((line = br.readLine()) != null) {
                 list.add(new MessageSign(line));
-                list.get(list.size()-1).setDate(br.readLine());
+                String d = br.readLine();
+                DateTimeFormatter f = DateTimeFormatter.ofPattern("yyyy.MM.dd");
+                list.get(list.size()-1).setDate(startDate(d,f),finishDate(d,f));
                 list.get(list.size()-1).setMessage(br.readLine());
             }
         } catch (IOException e) {
@@ -34,6 +38,13 @@ public class App  {
         return list;
 
     }
+    private static LocalDate startDate(String input, DateTimeFormatter f){
+        return LocalDate.parse("2020."+input.substring(0,5), f);
+    }
+    private static LocalDate finishDate(String input, DateTimeFormatter f){
+        return LocalDate.parse("2020."+input.substring(8,13), f);
+    }
+
 
 
 
