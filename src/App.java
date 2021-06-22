@@ -13,9 +13,6 @@ public class App  {
         WindowMain View = new WindowMain(800,600,"Horoscope app");
         Brains Controller = new Brains(View,getHoroscopeData("mainData.txt") );
 
-
-        for (MessageSign msg: getHoroscopeData("mainData.txt"))
-            System.out.println(msg.getSign());
         }
 
 

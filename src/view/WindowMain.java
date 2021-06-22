@@ -154,6 +154,17 @@ public class WindowMain extends JFrame {
     public int getYear(){
         return Integer.parseInt(this.year.getText());
     }
+    public String getYearText(){
+        return this.year.getText();
+    }
+
+    public int getMonth(){
+        return Integer.parseInt(this.month.getText());
+    }
+
+    public int getDay(){
+        return Integer.parseInt(this.day.getText());
+    }
 
 
 }
