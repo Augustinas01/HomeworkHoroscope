@@ -23,7 +23,7 @@ public class WindowMain extends JFrame {
     public static final String[] months = {"April", "May"};
 
     private static JPanel header,body,footer;
-    private static JLabel signText;
+    private static JLabel signText,ageText,birthdayText,birthdayWeekText;
     private JTextField year,month,day;
     ActionListener yearListener,buttonListener;
 
@@ -84,25 +84,29 @@ public class WindowMain extends JFrame {
         body.setLayout(new FlowLayout(FlowLayout.CENTER,1000,20));
         body.setBorder(BorderFactory.createDashedBorder(Color.blue));
         //Content
+        //Sign
         JLabel signLabel = new JLabel("Sign:");
-        signLabel.setHorizontalAlignment(JLabel.TRAILING);
 
+        signLabel.setHorizontalAlignment(JLabel.TRAILING);
         signText = new JLabel("Your sign");
 
+        //Age
         JLabel ageLabel = new JLabel("Age: ");
+
         ageLabel.setHorizontalAlignment(JLabel.RIGHT);
+        ageText = new JLabel("Your age");
 
-        JLabel ageText = new JLabel("18");
-
+        //Birthday in label
         JLabel birthdayLabel = new JLabel("Birthday in: ");
+
         birthdayLabel.setHorizontalAlignment(JLabel.RIGHT);
+        birthdayText = new JLabel("Days till your birthday");
 
-        JLabel birthdayText = new JLabel("18 days");
+        //B-day week
+        JLabel birthdayWeekLabel = new JLabel("Week that you born: ");
 
-        JLabel birthdayInfoLabel = new JLabel("Week that you born: ");
-        birthdayInfoLabel.setHorizontalAlignment(JLabel.RIGHT);
-
-        JLabel birthdayInfoText = new JLabel("20-th week");
+        birthdayWeekLabel.setHorizontalAlignment(JLabel.RIGHT);
+        birthdayWeekText = new JLabel("Week that you were born");
 
 
 
@@ -113,8 +117,8 @@ public class WindowMain extends JFrame {
         body.add(ageText);
         body.add(birthdayLabel);
         body.add(birthdayText);
-        body.add(birthdayInfoLabel);
-        body.add(birthdayInfoText);
+        body.add(birthdayWeekLabel);
+        body.add(birthdayWeekText);
 
         return body;
     }
@@ -185,7 +189,19 @@ public class WindowMain extends JFrame {
         this.day = day;
     }
 
-    public void setSignText(String text) {
-        signText.setText(text);
+    public void setSignText(String s) {
+        signText.setText(s);
+    }
+
+    public void setAgeText(String s) {
+        ageText.setText(s);
+    }
+
+    public void setBirthdayText(String s) {
+        birthdayText.setText(s);
+    }
+
+    public void setBirthdayWeekText(String s) {
+        birthdayWeekText.setText(s);
     }
 }
