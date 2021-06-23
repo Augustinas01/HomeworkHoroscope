@@ -47,11 +47,16 @@ public class MessageSign {
     public List<LocalDate> getPeriod(int year){
         this.dateStart = this.dateStart.withYear(year);
         this.dateFinish = this.dateFinish.withYear(year);
-        if (this.dateStart.equals(LocalDate.of(dateStart.getYear(),12,23))){
-            return this.dateStart.withYear(dateStart.getYear()-1).datesUntil(this.dateFinish).toList();
-        }else {
+        try {
             return this.dateStart.datesUntil(this.dateFinish).toList();
+        }catch (IllegalArgumentException e){
+            return this.dateFinish.datesUntil(this.dateStart).toList();
         }
+//        if (this.dateStart.datesUntil(this.dateFinish).toList().size() > 40){
+//            return this.dateStart.withYear(dateStart.getYear()-1).datesUntil(this.dateFinish).toList();
+//        }else {
+//            return this.dateStart.datesUntil(this.dateFinish).toList();
+//        }
     }
 }
 

@@ -14,8 +14,9 @@ import java.util.ArrayList;
 
 public class WindowMain extends JFrame {
 
-    public interface ButtonListener {
-        void searchButton ();
+    public interface FrameListener {
+        void searchButton();
+        void yearField(ActionEvent e);
     }
 
 
@@ -24,7 +25,7 @@ public class WindowMain extends JFrame {
     private static JPanel header,body,footer;
     private static JLabel signText;
     private JTextField year,month,day;
-    ActionListener listener;
+    ActionListener yearListener,buttonListener;
 
     public WindowMain(int width, int height, String title){
 
@@ -54,6 +55,7 @@ public class WindowMain extends JFrame {
 //        year.setFocusable(false);
         this.year.setBorder(null);
         this.year.setHorizontalAlignment(JTextField.CENTER);
+        this.year.addActionListener(this.yearListener);
 
 //        month.setFocusable(false);
         this.month.setBorder(null);
@@ -125,7 +127,7 @@ public class WindowMain extends JFrame {
         //Content
         JButton button = new JButton("Button");
         button.setFocusable(false);
-        button.addActionListener(this.listener);
+        button.addActionListener(this.buttonListener);
 
         JButton button2 = new JButton("Next");
         button2.setFocusable(false);
@@ -148,8 +150,12 @@ public class WindowMain extends JFrame {
         this.setVisible(true);
     }
 
-    public void setListener(ActionListener listener){
-        this.listener = listener;
+    public void setButtonListener(ActionListener listener){
+        this.buttonListener = listener;
+    }
+
+    public void setYearListener(ActionListener listener){
+        this.yearListener = listener;
     }
 
     public int getYear(){
