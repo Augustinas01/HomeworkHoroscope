@@ -61,8 +61,10 @@ public class Brains implements FrameListener {
         view.setSignText(zodiac.getSign());
         view.setAgeText(String.valueOf(Period.between(in,LocalDate.now()).getYears()));
         String bday;
-        if (in.isAfter(LocalDate.now())) {
-            bday = String.valueOf(in.withYear(LocalDate.now().getYear()).getDayOfYear()-LocalDate.now().getDayOfYear());
+        if (!in.isAfter(LocalDate.now())) {
+            bday = String.valueOf(Period.between(LocalDate.now(),in.withYear(LocalDate.now().getYear() + 1)).getDays());
+
+//            bday = String.valueOf(in.withYear(LocalDate.now().getYear()).getDayOfYear()-LocalDate.now().getDayOfYear());
         }else {
 //            Period p = Period.between(in.withYear(LocalDate.now().getYear() + 1), LocalDate.now());
             bday = String.valueOf(in.withYear(LocalDate.now().getYear()).getDayOfYear()-LocalDate.now().getDayOfYear()) + LocalDate.now().lengthOfYear();
