@@ -12,8 +12,8 @@ import java.util.ArrayList;
 
 public class App  {
     public static void main(String[] args) {
-        WindowMain View = new WindowMain(800,600,"Horoscope app");
-        Brains Controller = new Brains(View,getHoroscopeData("mainData.txt") );
+        WindowMain view = new WindowMain(800,600,"Horoscope app");
+        Brains Controller = new Brains(view,getHoroscopeData("mainData.txt") );
 
         }
 
